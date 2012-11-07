@@ -4,3 +4,6 @@
 [submodule ".cmd"]
 	path = .cmd
 	url = https://github.com/dbarsam/.cmd.git
+[submodule ".ps1"]
+	path = .ps1
+	url = https://github.com/dbarsam/.ps1.git
