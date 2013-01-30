@@ -7,3 +7,6 @@
 [submodule ".ps1"]
 	path = .ps1
 	url = https://github.com/dbarsam/.ps1.git
+[submodule ".console"]
+	path = .console
+	url = https://github.com/dbarsam/.console.git
