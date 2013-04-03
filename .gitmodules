@@ -10,3 +10,6 @@
 [submodule ".console"]
 	path = .console
 	url = https://github.com/dbarsam/.console.git
+[submodule ".gitconfig"]
+	path = .gitconfig
+	url = https://github.com/dbarsam/.gitconfig.git
