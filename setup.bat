@@ -46,14 +46,14 @@ set PAIRS=%PAIRS%,%DST%\.gitconfig
 rem ============
 rem .vim
 rem ============
-set PAIRS=%PAIRS%;%SRC%\.vim\.vimrc
-set PAIRS=%PAIRS%,%DST%\.vimrc
+set PAIRS=%PAIRS%;%SRC%\.vim\_vimrc
+set PAIRS=%PAIRS%,%DST%\_vimrc
 
-set PAIRS=%PAIRS%;%SRC%\.vim\.gvimrc
-set PAIRS=%PAIRS%,%DST%\.gvimrc
+set PAIRS=%PAIRS%;%SRC%\.vim\_gvimrc
+set PAIRS=%PAIRS%,%DST%\_gvimrc
 
 set PAIRS=%PAIRS%;%SRC%\.vim
-set PAIRS=%PAIRS%,%DST%\.vimfile
+set PAIRS=%PAIRS%,%DST%\vimfiles
 
 rem ============
 rem main install loop
