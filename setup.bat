@@ -43,6 +43,9 @@ rem ============
 set PAIRS=%PAIRS%;%SRC%\.gitconfig\.gitconfig
 set PAIRS=%PAIRS%,%DST%\.gitconfig
 
+set PAIRS=%PAIRS%;%SRC%\.gitconfig\.gitconfig_local
+set PAIRS=%PAIRS%,%DST%\.gitconfig_local
+
 rem ============
 rem .vim
 rem ============
