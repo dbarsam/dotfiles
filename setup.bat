@@ -87,7 +87,7 @@ if exist %2 if defined DELETE (
     )
 )
 rem Link
-if not defined CLEAR (
+if exist %1 if not defined CLEAR (
     if defined DIRECTORY (
         mklink /j %2 %1
     ) else (
