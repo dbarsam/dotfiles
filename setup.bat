@@ -7,16 +7,18 @@ rem ===================================================================
 rem ============
 rem Init
 rem ============
-if "%1" == "-?" goto HELP
-if "%1" == "help" goto HELP
-if "%1" == "-u" (
-    set CLEAR=1
-    shift
-)
-if "%1" == "-f" (
-    set FORCE=1
-    shift
-)
+rem Argument Process
+:argloop
+IF /i "%~1"=="" GOTO argvalidate
+if /i "%~1" == "-?" goto HELP
+if /i "%~1" == "help" goto HELP
+if /i "%~1" == "-u" set CLEAR=1
+if /i "%~1" == "-f" set FORCE=1
+SHIFT & GOTO argloop
+
+rem Argument validate
+:argvalidate
+if defined FORCE if defined CLEAR goto HELP
 
 rem Base Directories
 set SRC=%~dp0
@@ -107,7 +109,7 @@ rem ============
 :HELP
 echo Installs the configuration files in dotfiles directory
 echo.
-echo setup [-f|-u]
+echo setup [-f^|-u]
 echo    -f       overwrites an existing files
 echo    -u       uninstalls an existing files
 echo    -?       displays this message
