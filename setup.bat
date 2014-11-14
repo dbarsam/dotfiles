@@ -12,6 +12,8 @@ rem Argument Process
 IF /i "%~1"=="" GOTO argvalidate
 if /i "%~1" == "-?" goto HELP
 if /i "%~1" == "help" goto HELP
+if /i "%~1" == "-n" set DRYRUN=1
+if /i "%~1" == "-v" set VERBOSE=1
 if /i "%~1" == "-u" set CLEAR=1
 if /i "%~1" == "-f" set FORCE=1
 SHIFT & GOTO argloop
@@ -86,17 +88,21 @@ if defined FORCE set DELETE=1
 rem Remove Existing Links
 if exist %2 if defined DELETE (
     if defined DIRECTORY (
-        rd %2
+        if defined VERBOSE echo rd %2
+        if not defined DRYRUN rd %2
     ) else (
-        del %2
+        if defined VERBOSE echo del %2
+        if not defined DRYRUN del %2
     )
 )
 rem Link
 if exist %1 if not defined CLEAR (
     if defined DIRECTORY (
-        mklink /j %2 %1
+        if defined VERBOSE echo mklink /j %2 %1
+        if not defined DRYRUN mklink /j %2 %1
     ) else (
-        mklink %2 %1
+        if defined VERBOSE echo mklink %2 %1
+        if not defined DRYRUN mklink %2 %1
     )
 )
 
@@ -109,7 +115,9 @@ rem ============
 :HELP
 echo Installs the configuration files in dotfiles directory
 echo.
-echo setup [-f^|-u]
+echo setup [-n] [-v] [-f^|-u]
+echo    -n       dry-run (does not execute commands)
+echo    -v       verbose (echos the commands)
 echo    -f       overwrites an existing files
 echo    -u       uninstalls an existing files
 echo    -?       displays this message
